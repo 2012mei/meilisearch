@@ -15,7 +15,7 @@ on:
 
 jobs:
   docker:
-    runs-on: docker
+    runs-on: ubuntu-latest
     permissions:
       id-token: write # This is needed to use Cosign in keyless mode
     steps:
@@ -31,7 +31,7 @@ jobs:
         id: check-tag-format
         env:
           # To avoid request limit with the .github/scripts/is-latest-release.sh script
-          GITHUB_PATH: ${{ secrets.MEILI_BOT_GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.MEILI_BOT_GH_PAT }}
         run: |
           escaped_tag=$(printf "%q" ${{ github.ref_name }})
           echo "latest=false" >> $GITHUB_OUTPUT
@@ -58,6 +58,12 @@ jobs:
 
           echo "date=$commit_date" >> $GITHUB_OUTPUT
 
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}    
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -67,17 +73,12 @@ jobs:
       - name: Install cosign
         uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 # tag=v3.9.2
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: getmeili/meilisearch
+          images: lamminh2012/meilisearch
           # Prevent `latest` to be updated for each new tag pushed.
           # We need latest and `vX.Y` tags to only be pushed for the stable Meilisearch releases.
           flavor: latest=false
