@@ -589,7 +589,7 @@ source = "git+https://github.com/meilisearch/bbqueue#cbb87cc707b5af415ef203bdaf2
 
 [[package]]
 name = "benchmarks"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "bumpalo",
@@ -799,7 +799,7 @@ dependencies = [
 
 [[package]]
 name = "build-info"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "time",
@@ -1092,7 +1092,7 @@ dependencies = [
  "steppe",
  "thiserror 2.0.16",
  "thread_local",
- "zerometry 0.3.0",
+ "zerometry",
 ]
 
 [[package]]
@@ -1829,7 +1829,7 @@ dependencies = [
 
 [[package]]
 name = "dump"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "big_s",
@@ -2072,7 +2072,7 @@ checksum = "37909eebbb50d72f9059c3b6d82c0463f2ff062c9e95845c43a6c9c0355411be"
 
 [[package]]
 name = "file-store"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "tempfile",
  "thiserror 2.0.16",
@@ -2094,7 +2094,7 @@ dependencies = [
 
 [[package]]
 name = "filter-parser"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "insta",
  "levenshtein_automata",
@@ -2122,7 +2122,7 @@ dependencies = [
 
 [[package]]
 name = "flatten-serde-json"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "criterion",
  "serde_json",
@@ -2279,7 +2279,7 @@ dependencies = [
 
 [[package]]
 name = "fuzzers"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "arbitrary",
  "bumpalo",
@@ -2577,7 +2577,6 @@ dependencies = [
  "num-traits",
  "robust",
  "rstar",
- "spade",
 ]
 
 [[package]]
@@ -2588,7 +2587,6 @@ checksum = "75a4dcd69d35b2c87a7c83bce9af69fd65c9d68d3833a0ded568983928f3fc99"
 dependencies = [
  "approx",
  "num-traits",
- "rayon",
  "rstar",
  "serde",
 ]
@@ -3060,7 +3058,6 @@ dependencies = [
  "i_key_sort",
  "i_shape",
  "i_tree",
- "rayon",
 ]
 
 [[package]]
@@ -3237,7 +3234,7 @@ dependencies = [
 
 [[package]]
 name = "index-scheduler"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "backoff",
@@ -3491,7 +3488,7 @@ dependencies = [
 
 [[package]]
 name = "json-depth-checker"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "criterion",
  "serde_json",
@@ -4000,7 +3997,7 @@ checksum = "490cc448043f947bae3cbee9c203358d62dbee0db12107a74be5c30ccfd09771"
 
 [[package]]
 name = "meili-snap"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "insta",
  "md5",
@@ -4011,7 +4008,7 @@ dependencies = [
 
 [[package]]
 name = "meilisearch"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "actix-cors",
  "actix-http",
@@ -4108,7 +4105,7 @@ dependencies = [
 
 [[package]]
 name = "meilisearch-auth"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "base64 0.22.1",
  "enum-iterator",
@@ -4127,7 +4124,7 @@ dependencies = [
 
 [[package]]
 name = "meilisearch-types"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "actix-web",
  "anyhow",
@@ -4162,7 +4159,7 @@ dependencies = [
 
 [[package]]
 name = "meilitool"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "clap",
@@ -4196,7 +4193,7 @@ dependencies = [
 
 [[package]]
 name = "milli"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "allocator-api2 0.3.1",
  "arroy",
@@ -4275,7 +4272,7 @@ dependencies = [
  "url",
  "utoipa",
  "uuid",
- "zerometry 0.1.0",
+ "zerometry",
 ]
 
 [[package]]
@@ -4777,7 +4774,7 @@ checksum = "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
 
 [[package]]
 name = "permissive-json-pointer"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "big_s",
  "serde_json",
@@ -6143,18 +6140,6 @@ dependencies = [
  "byteorder",
  "libc",
  "winapi",
-]
-
-[[package]]
-name = "spade"
-version = "2.15.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fb313e1c8afee5b5647e00ee0fe6855e3d529eb863a0fdae1d60006c4d1e9990"
-dependencies = [
- "hashbrown 0.15.5",
- "num-traits",
- "robust",
- "smallvec",
 ]
 
 [[package]]
@@ -7836,7 +7821,7 @@ dependencies = [
 
 [[package]]
 name = "xtask"
-version = "1.22.0"
+version = "1.22.1"
 dependencies = [
  "anyhow",
  "build-info",
@@ -7981,18 +7966,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.106",
-]
-
-[[package]]
-name = "zerometry"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "681f08f3f4ef27d3021a128eb6d8df1cd781e4c9c797c3971c1f85316374f977"
-dependencies = [
- "bytemuck",
- "byteorder",
- "geo",
- "geo-types",
 ]
 
 [[package]]
