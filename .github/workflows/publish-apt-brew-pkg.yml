@@ -32,15 +32,17 @@ jobs:
       - uses: actions/checkout@v5
       - name: Build deb package
         run: cargo deb -p meilisearch -o target/debian/meilisearch.deb
+      
+      - name: Upload debian pkg to apt repository
+        run: curl -F package=@target/debian/meilisearch.deb https://${{ secrets.GEMFURY_PUSH_TOKEN }}@push.fury.io/lamminh2012/
+
       - name: Upload debian pkg to release
         uses: svenstaro/upload-release-action@2.11.2
         with:
           repo_token: ${{ secrets.MEILI_BOT_GH_PAT }}
           file: target/debian/meilisearch.deb
           asset_name: meilisearch.deb
-          tag: ${{ github.ref }}
-      - name: Upload debian pkg to apt repository
-        run: curl -F package=@target/debian/meilisearch.deb https://${{ secrets.GEMFURY_PUSH_TOKEN }}@push.fury.io/lamminh2012/
+          tag: ${{ github.ref }}  
 
   #homebrew:
   # name: Bump Homebrew formula
